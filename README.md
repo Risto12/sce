@@ -61,6 +61,8 @@ relax and highstate
 
 ## NOTE!
 
+ - If you use djangoconf in production CHANGE SECRET KEY.
+
 - Full support only for Xubuntu 18.04
 
 - I havent included React. To install react project install npm module and use command: npx create-react-app my-app
