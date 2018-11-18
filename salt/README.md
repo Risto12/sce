@@ -3,10 +3,10 @@
 ## this saltstack project will install my favorite software development tools and environments to any computer. It also installs completely working django project that uses db (mysql/sqlite3) and apache2
 
 Configuration have been tested with xubuntu 18.04. <br>
-Computers used in testing: Lenovo thinkpad t13, T480, thinkcenter
-Version: 1.0b
-status: Everything working expect google module
-Date: 19.11.2018
+Computers used in testing: Lenovo thinkpad t13, T480, thinkcenter <br>
+Version: 1.0b <br>
+status: Everything working expect google module <br>
+Date: 19.11.2018 <br>
 
 ## how to use:
 
