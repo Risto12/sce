@@ -70,6 +70,6 @@ relax and highstate
 - google mod && ssh-server mod not complitely configured....
 
 ## Sources: 
-This mod uses Tero karvisen mysql configuration with some changes :
+This mod uses Tero Karvisen mysql configuration with some changes :
 http://terokarvinen.com/2015/preseed-mysql-server-password-with-salt-stack
 
