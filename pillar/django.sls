@@ -18,7 +18,7 @@
 #Djangos database name
 {% set dbname = "secretsssf" %}
 
-#===================================================
+#=======Don't touch below======
 
 home: {{ home }}
 django_folder: {{ django_folder }}
