@@ -20,7 +20,7 @@ Date: 19.11.2018 <br>
 ### Step 1:
 
 >sudo mkdir /srv<br>
->sudo git clone repo /srv/ 
+>sudo git clone https://github.com/Risto12/sce.git /srv/ 
 
 ### Step 2: Conf settings && choose mods
 
