@@ -19,7 +19,7 @@ Date: 19.11.2018 <br>
 
 ### Step 1:
 
->sudo mkdir /srv
+>sudo mkdir /srv<br>
 >sudo git clone repo /srv/ 
 
 ### Step 2: Conf settings && choose mods
