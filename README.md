@@ -10,8 +10,8 @@ Project:
 Version: 1.0b <br>
 status: Everything working expect google module <br>
 
-Last update:
-Date: 19.11.2018 <br>
+Last major update:<br>
+19.11.2018 <br>
 
 ## how to use:
 
