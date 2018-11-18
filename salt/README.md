@@ -28,7 +28,7 @@ Date: 19.11.2018 <br>
 - mysql.sls -> Set password to mysql
 - server.sls -> If installing to server distro like ubuntu server 18.04 set to True. Skips some mods.
 - Django project -> Here you can set your project User, Django folder name, Django project name, Django venv, use mysql or sqlite3
-- Node.js -> if you want different version of nodejs. defualt is 10.x which is the LTS
+- Node.js -> if you want differend version of nodejs. default is 10.x which is the LTS
 
 ### Now conf your /srv/salt/top.sls file to install what you want:
 Note! Some mods are just depencys. Meaning that you can install any mods but some mods install other because of depency.
