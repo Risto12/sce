@@ -19,7 +19,7 @@ Date: 19.11.2018 <br>
 
 ### Step 2: 
 
-### Settings for this installation are located in pillar folder.
+### Settings for this installation are located in /srv/pillar folder.
 - mysql.sls -> Set password to mysql
 - server.sls -> If installing to server distro like ubuntu server 18.04 set to True. Skips some mods.
 - Django project -> Here you can set your project User, Django folder name, Django project name, Django venv, use mysql or sqlite3
