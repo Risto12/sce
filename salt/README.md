@@ -17,7 +17,7 @@ Date: 19.11.2018 <br>
 >sudo mkdir /srv
 >sudo git clone repo /srv/ 
 
-### Step 2: 
+### Step 2: Conf settings && choose mods
 
 ### Settings for this installation are located in /srv/pillar folder.
 - mysql.sls -> Set password to mysql
@@ -41,7 +41,7 @@ relax and highstate
 
 ## Issues:
 
-
+- Can't install mysql to Try xubuntu state
 
 
 
