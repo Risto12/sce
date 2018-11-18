@@ -1,3 +1,5 @@
+#Before using. Make configurations to /srv/pillar/ django.sls
+
 {% set user = pillar["home"] %}
 {% set env = pillar["venv_environment"] %}
 {% set django_folder = pillar["django_folder"] %}
