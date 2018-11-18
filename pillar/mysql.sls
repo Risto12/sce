@@ -1,0 +1,3 @@
+#mysql password
+mysqlpass: ripa
+
