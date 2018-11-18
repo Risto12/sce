@@ -2,10 +2,15 @@
 
 ## this saltstack project will install my favorite software development tools and environments. It also installs completely working django project that uses db (mysql/sqlite3) and apache2
 
-Configuration have been tested with xubuntu 18.04. <br>
-Computers used in testing: Lenovo thinkpad t13, T480, thinkcenter <br>
+Configuration have been tested with:<br>
+OS:xubuntu 18.04. <br>
+Computers: Lenovo thinkpad t13, T480, thinkcenter <br>
+
+Project:
 Version: 1.0b <br>
 status: Everything working expect google module <br>
+
+Last update:
 Date: 19.11.2018 <br>
 
 ## how to use:
@@ -38,15 +43,32 @@ Depencys are marked on the init.sls file -> include -mysql.sls
 relax and highstate
 > sudo salt '*' state.highstate
 
+### Testing:
+ shell command = s:
+ nodejs -> s: nodejs --version = 10. something
+ django -> browser to your localhost -> front page should be django
+ mysql -> s: mysql -u root -p 
+ venv -> s: python3 -m venv yourproject
+ pip -> s: pip freeze
 
-## Issues:
+
+ ## Issues:
 
 - Can't install mysql to Try xubuntu state
 
+## Still coming(maybe): 
+ -Shell script to install this automaticly....
 
+## NOTE!
 
-- I havent included npm -g i create-react-app. I think its better to use command npx create-react-app my-app which comes with npm 5.2+. 
+- Full support only for Xubuntu 18.04
 
-##
-- BUGS:
-  - With lenovo thinkcentre mysql won't install
+- I havent included React. To install react project install npm module and use command: npx create-react-app my-app
+
+- Django module is perfectly working but may still change.
+
+- google mod && ssh-server mod not complitely configured....
+
+## Sources: This mod uses Tero karvisen mysql configuration with some changes 
+Source:  http://terokarvinen.com/2015/preseed-mysql-server-password-with-salt-stack
+
