@@ -10,8 +10,8 @@ Project:
 Version: 1.0b <br>
 status: Everything working expect google module <br>
 
-Last update:
-Date: 19.11.2018 <br>
+Last major update:<br>
+19.11.2018 <br>
 
 ## how to use:
 
@@ -61,6 +61,8 @@ relax and highstate
 
 ## NOTE!
 
+ - If you use djangoconf in production CHANGE SECRET KEY.
+
 - Full support only for Xubuntu 18.04
 
 - I havent included React. To install react project install npm module and use command: npx create-react-app my-app
@@ -70,6 +72,6 @@ relax and highstate
 - google mod && ssh-server mod not complitely configured....
 
 ## Sources: 
-This mod uses Tero karvisen mysql configuration with some changes :
+This mod uses Tero Karvisen mysql configuration with some changes :
 http://terokarvinen.com/2015/preseed-mysql-server-password-with-salt-stack
 
