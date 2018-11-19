@@ -2,8 +2,8 @@ base:
   '*':
    #- apache2
    #- nodejs
-   - mysql 
-   #- djangoserver
+   #- mysql 
+   - djangoserver
    #- ssh-server
    #- google
    #- curl

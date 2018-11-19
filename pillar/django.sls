@@ -1,7 +1,7 @@
 #===== Change these values to conf your project ====
 
 #Home(User home directory)
-{% set home = "xubuntu" %}
+{% set home = "vagrant" %}
 
 #Django project root
 {% set django_folder = "django" %}
@@ -13,10 +13,10 @@
 {% set venv_environment = "python_env" %}
 
 #Set use mysql instead of mysqlite3
-{% set django_mysql = "True" %}
+{% set django_mysql = "False" %}
 
 #Djangos database name
-{% set dbname = "secretsssf" %}
+{% set dbname = "secrddddetsssf" %}
 
 #===================================================
 

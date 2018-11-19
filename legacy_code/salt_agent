@@ -1,4 +1,4 @@
-#!/home/{{ user }}/{{ django }}/{{ env }}/bin/python3
+#!/home/{{ user }}/{{ django }}/{{ env }}/bin/python3
 
 #This file is not part of django. It was only used for saltstack to conf the project. It can be safely removed.
 
@@ -10,17 +10,19 @@ message = "1"
 
 if {{ stage }} == 1:
 
-    
+    call([sys.executable, '-m', 'pip', 'install', 'django==2.1'])
     
     if {{ pillar["django_mysql"] }}: 
         
-        
+        call([sys.executable, '-m', 'pip', 'install', 'mysqlclient'])
+        call([sys.executable, '-m', 'pip', 'install', 'mysql-connector-python'])
+    
         import mysql.connector as con
     
         try:
             db = con.connect(host="localhost", user="root", password="{{ pillar["mysqlpass"] }}")
             cursor = db.cursor()
-            cursor.execute("CREATE DATABASE {{ pillar["dbname"] }}")
+            cursor.execute("CREATE DATABASE {{ pillar["dbname"] }}")
 
         except mysql.connector.Error as exp:
             message = exp
@@ -28,10 +30,10 @@ if {{ stage }} == 1:
             message = Exception.message
         finally:
             db.close()    
-            
+            call([sys.executable, '-m', 'pip', 'uninstall', 'mysql-connector-python'])
 
 
-    call(["/home/{{ user }}/{{ django}}/{{ env }}/bin/django-admin","startproject","{{ project }}","/home/{{ user }}/{{ django }}"])
+    call(["/home/{{ user }}/{{ django}}/{{ env }}/bin/django-admin","startproject","{{ project }}","/home/{{ user }}/{{ django }}"])
 
     if message == "1":
         print()
@@ -46,6 +48,5 @@ else:
 
      print()
      print("comment='stage 2 succesful'")
-
 
 

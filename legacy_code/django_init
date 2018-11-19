@@ -5,7 +5,6 @@
 {% set django_folder = pillar["django_folder"] %}
 {% set django_project = pillar["django_project"] %}
 {% set django_home = pillar["django_home"] %}
-{% set django_mysql = pillar["django_mysql"] %}
 
 
 include:
@@ -17,7 +16,7 @@ include:
 
 
 
-python3 -m venv /home/{{ user }}/{{ django_folder }}/{{ env }}:
+python3 -m venv /home/{{ user }}/{{ django_folder }}/{{ env }}:
   cmd.run:
     - makedirs: True
     - user: {{ user }}
@@ -28,17 +27,6 @@ python3 -m venv /home/{{ user }}/{{ django_folder }}/{{ env }}:
        - group
     - require:
       -  sls: venv 
-
-{% for file in ['django==2.1','mysqlclient','mysql-connector-python'] %}
-
-{% if file  == 'mysqlclient' or 'mysql-connector-python' and django_mysql or file == 'django==2.1' %} 
-install {{ file }}:
-  pip.installed:
-    - name: {{ file }} 
-    - bin_env:  /home/{{ user }}/{{ django_folder }}/{{ env }}/bin/pip
-{% endif %}
-{% endfor %}
-
 
 /home/{{ user }}/{{ django_folder }}/salt_agent.py:
   file.managed:
@@ -139,5 +127,3 @@ active_agent_stage_2:
     - stateful: True
    
 
-
- 
