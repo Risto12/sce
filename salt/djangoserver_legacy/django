@@ -1,0 +1,28 @@
+<VirtualHost *:80>
+
+	ServerName www.example.com
+        ServerAlias example.com	
+        ServerAdmin webmaster@localhost
+	DocumentRoot /home/{{ user }}/www
+
+
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+	  Alias /static /home/{{ root }}/static
+    	<Directory /home/{{ root }}/static>
+        	Require all granted
+    	</Directory>
+
+    	<Directory /home/{{ root }}/{{ project }}>
+        	<Files wsgi.py>
+            		Require all granted
+        	</Files>
+    	</Directory>
+
+        WSGIDaemonProcess example.com python-home=/home/{{ root }}/{{ env }}  python-path=/home/{{ root }}/
+        WSGIProcessGroup example.com
+        WSGIScriptAlias / /home/{{ root }}/{{project}}/wsgi.py
+
+	
+</VirtualHost>

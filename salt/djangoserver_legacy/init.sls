@@ -30,7 +30,7 @@ python3 -m venv /home/{{ user }}/{{ django_folder }}/{{ env }}:
 
 /home/{{ user }}/{{ django_folder }}/salt_agent.py:
   file.managed:
-    - source: salt://djangoserver/salt_agent
+    - source: salt://djangoserver_legacy/salt_agent
     - template: jinja
     - user: {{ user }}
     - group: {{ user }}
@@ -68,7 +68,7 @@ libapache2-mod-wsgi-py3:
 django-configuration-file:
   file.managed:
    - name: /etc/apache2/sites-available/django.conf
-   - source: salt://djangoserver/django 
+   - source: salt://djangoserver_legacy/django 
    - template: jinja
    - context:
       user: {{ user }}
@@ -79,7 +79,7 @@ django-configuration-file:
 django-settings-file:
   file.managed:
    - name: /home/{{ user }}/{{ django_folder }}/{{ django_project }}/settings.py
-   - source: salt://djangoserver/settings
+   - source: salt://djangoserver_legacy/settings
    - mode: 644
    - template: jinja
    - user: {{ user }}
@@ -105,7 +105,7 @@ restart_apache2:
 sets_salt_agent_to_stage_2:
   file.managed:
     - name: /home/{{ user }}/{{ django_folder }}/salt_agent.py
-    - source: salt://djangoserver/salt_agent
+    - source: salt://djangoserver_legacy/salt_agent
     - template: jinja
     - user: {{ user }}
     - group: {{ user }}

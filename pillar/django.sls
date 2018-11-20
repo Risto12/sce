@@ -12,11 +12,11 @@
 #Django projects virtual environment name
 {% set venv_environment = "python_env" %}
 
-#Set use mysql instead of mysqlite3
-{% set django_mysql = "False" %}
+#Use mysql instead of mysqlite3
+{% set django_mysql = "True" %}
 
 #Djangos database name
-{% set dbname = "secrddddetsssf" %}
+{% set dbname = "testing" %}
 
 #=======Don't touch below======
 
