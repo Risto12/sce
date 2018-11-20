@@ -1,15 +1,15 @@
 # Tee koneestasi salt-slave
 
 A)
- #!/bin/bash
+ >#!/bin/bash
 
-apt-get update -qq >> /dev/null
+>apt-get update -qq
 
-apt-get install salt-minion -y >> /dev/null
+>apt-get install salt-minion -y 
 
-echo -e "master: 192.168.1.112\nid: testing"|tee /etc/salt/minion
+>echo -e "master: 192.168.1.112\nid: testing"|tee /etc/salt/minion
 
-systemctl restart salt-minion.service
+>systemctl restart salt-minion.service
 
 C) 
 
