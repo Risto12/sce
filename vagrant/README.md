@@ -1,6 +1,8 @@
 # Tee koneestasi salt-slave
 
 A)
+> vim agent.sh:
+
  >#!/bin/bash
 
 >apt-get update -qq
@@ -10,6 +12,10 @@ A)
 >echo -e "master: 192.168.1.112\nid: testing"|tee /etc/salt/minion
 
 >systemctl restart salt-minion.service
+
+> sudo chmod 744 agent.sh
+
+> sudo ./agent.sh
 
 C) 
 
