@@ -34,14 +34,14 @@ Asennetaan centos 7
 Koodi miten virtuaalikoneet asennettiin.
 
 oikea kone loi valmiista kansiosta missä oli Vagrant kuvake(xubuntu 18.04) 50 kopiota:
->#!/bin/bash
->
->for i in {1..50}
->do
->   v=test$i
->   cp -r test $v
->   ( cd $v ; vagrant up )
->done
+>#!/bin/bash<br>
+><br>
+>for i in {1..50}<br>
+>do<br>
+>   v=test$i<br>
+>   cp -r test $v<br>
+>   ( cd $v ; vagrant up )<br>
+>done<br>
 
 Näitä koodeja laitetiin 4 eri terminaaliin samanaikaisesti.
 
@@ -49,7 +49,7 @@ Vagrantfile oli lisätty seuraava koodinpätkä:
 
 >config.vm.provision "shell",run:"always",inline: <<-SHELL<br>
 >    sudo apt-get update -q<br>
->    sudo apt install -yq salt-minion<br>
+>    sudo apt-get install -yq salt-minion<br>
 >    echo -e "master: 192.168.1.112\nid: $RANDOM%Y"|sudo tee /etc/salt/minion<br>
 >    sudo systemctl restart salt-minion<br>
 
