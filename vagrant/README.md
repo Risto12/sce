@@ -47,11 +47,11 @@ Näitä koodeja laitetiin 4 eri terminaaliin samanaikaisesti.
 
 Vagrantfile oli lisätty seuraava koodinpätkä:
 
->config.vm.provision "shell",run:"always",inline: <<-SHELL
->    sudo apt-get update -q
->    sudo apt install -yq salt-minion
->    echo -e "master: 192.168.1.112\nid: $RANDOM%Y"|sudo tee /etc/salt/minion
->    sudo systemctl restart salt-minion
+>config.vm.provision "shell",run:"always",inline: <<-SHELL<br>
+>    sudo apt-get update -q<br>
+>    sudo apt install -yq salt-minion<br>
+>    echo -e "master: 192.168.1.112\nid: $RANDOM%Y"|sudo tee /etc/salt/minion<br>
+>    sudo systemctl restart salt-minion<br>
 
 Eli jokainen virtuaalikone ottaa yhteyttä emokoneeseen uniikilla id:llä.
 
