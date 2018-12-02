@@ -1,6 +1,4 @@
-#!/home/{{ user }}/{{ django }}/{{ env }}/bin/python3
-
-#This file is not part of django. It was only used for saltstack to conf the project. It can be safely removed.
+#!/home/vagrant/django/python_env/bin/python
 
 from subprocess import call
 import sys
@@ -8,30 +6,10 @@ import sys
 message = "1"
 
 
-if {{ stage }} == 1:
-
+if {{ stage }}  == 1:
     
-    
-    if {{ pillar["django_mysql"] }}: 
-        
-        
-        import mysql.connector as con
-    
-        try:
-            db = con.connect(host="localhost", user="root", password="{{ pillar["mysqlpass"] }}")
-            cursor = db.cursor()
-            cursor.execute("CREATE DATABASE {{ pillar["dbname"] }}")
-
-        except mysql.connector.Error as exp:
-            message = exp
-        except Exception:
-            message = Exception.message
-        finally:
-            db.close()    
-            
-
-
-    call(["/home/{{ user }}/{{ django}}/{{ env }}/bin/django-admin","startproject","{{ project }}","/home/{{ user }}/{{ django }}"])
+    call([sys.executable,"-m","pip","install","django==2.1"])
+    call([sys.executable,"/home/{{ user }}/{{ django}}/{{ env }}/bin/django-admin","startproject","{{ project }}","/home/{{ user }}/{{ django }}"])
 
     if message == "1":
         print()

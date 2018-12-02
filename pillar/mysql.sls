@@ -1,3 +1,3 @@
 #mysql password
-mysqlpass: ripa
+mysqlpass: salainen
 

@@ -12,9 +12,6 @@
 #Django projects virtual environment name
 {% set venv_environment = "python_env" %}
 
-#Use mysql instead of mysqlite3
-{% set django_mysql = "True" %}
-
 #Djangos database name
 {% set dbname = "testing" %}
 
@@ -25,5 +22,4 @@ django_folder: {{ django_folder }}
 django_home: {{ home }}/{{ django_folder }}
 django_project: {{ django_project }}
 venv_environment: {{ venv_environment }}
-django_mysql: {{ django_mysql }}
 dbname: {{ dbname }}

@@ -4,7 +4,7 @@ base:
    #- nodejs
    #- mysql 
    #- djangoserver
-   - djangoserver_legacy
+   - djangoserver_mysql
    #- ssh-server
    #- google
    #- curl

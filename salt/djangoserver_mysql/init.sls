@@ -5,18 +5,18 @@
 {% set django_folder = pillar["django_folder"] %}
 {% set django_project = pillar["django_project"] %}
 {% set django_home = pillar["django_home"] %}
+{% set django_mysql = pillar["django_mysql"] %}
 
 
 include:
   - venv
-  - apache2
-{% if pillar["django_mysql"] %}   
+  - apache2  
   - mysql
-{% endif %}
 
+gcc:
+  pkg.installed
 
-
-python3 -m venv /home/{{ user }}/{{ django_folder }}/{{ env }}:
+python3.6 -m venv /home/{{ user }}/{{ django_folder }}/{{ env }}:
   cmd.run:
     - makedirs: True
     - user: {{ user }}
@@ -30,7 +30,7 @@ python3 -m venv /home/{{ user }}/{{ django_folder }}/{{ env }}:
 
 /home/{{ user }}/{{ django_folder }}/salt_agent.py:
   file.managed:
-    - source: salt://djangoserver_legacy/salt_agent
+    - source: salt://djangoserver_mysql/salt_agent
     - template: jinja
     - user: {{ user }}
     - group: {{ user }}
@@ -42,13 +42,9 @@ python3 -m venv /home/{{ user }}/{{ django_folder }}/{{ env }}:
        project: {{ django_project }}
        stage: 1
 
-{% if pillar["django_mysql"] %}
-
 install_mysql:
   require:
     - sls: mysql
-
-{% endif %}
 
 active_agent:
   cmd.run:
@@ -56,10 +52,8 @@ active_agent:
     - mode: 744
     - user: {{ user }}
     - group: {{ user }}
-    - cwd: /
     - stateful: True
    
-
 libapache2-mod-wsgi-py3:
   pkg.installed:
     - require:
@@ -68,7 +62,7 @@ libapache2-mod-wsgi-py3:
 django-configuration-file:
   file.managed:
    - name: /etc/apache2/sites-available/django.conf
-   - source: salt://djangoserver_legacy/django 
+   - source: salt://djangoserver_mysql/django 
    - template: jinja
    - context:
       user: {{ user }}
@@ -79,7 +73,7 @@ django-configuration-file:
 django-settings-file:
   file.managed:
    - name: /home/{{ user }}/{{ django_folder }}/{{ django_project }}/settings.py
-   - source: salt://djangoserver_legacy/settings
+   - source: salt://djangoserver_mysql/settings
    - mode: 644
    - template: jinja
    - user: {{ user }}
@@ -105,7 +99,7 @@ restart_apache2:
 sets_salt_agent_to_stage_2:
   file.managed:
     - name: /home/{{ user }}/{{ django_folder }}/salt_agent.py
-    - source: salt://djangoserver_legacy/salt_agent
+    - source: salt://djangoserver_mysql/salt_agent
     - template: jinja
     - user: {{ user }}
     - group: {{ user }}
@@ -123,7 +117,8 @@ active_agent_stage_2:
     - mode: 744
     - user: {{ user }}
     - group: {{ user }}
-    - cwd: /
     - stateful: True
    
 
+
+ 

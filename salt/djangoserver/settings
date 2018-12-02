@@ -74,21 +74,12 @@ WSGI_APPLICATION = '{{ pillar["django_project"] }}.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-{% if pillar["django_mysql"] %}
-    'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': '{{ pillar.get("dbname","testdatabase") }}',
-        'USER': 'root',
-        'PASSWORD': '{{ pillar.get("mysqlpass","salainen") }}',
-        'HOST': 'localhost', 
-        'PORT': '3306',
-    }
-{% else %}
+
    'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-{% endif %}
+
 }
 
 # Password validation
