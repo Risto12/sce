@@ -4,10 +4,10 @@ base:
    #- nodejs
    #- mysql 
    #- djangoserver
-   - djangoserver_mysql
+   #- djangoserver_mysql
    #- ssh-server
    #- google
    #- curl
    #- pip
    #- venv
-   
+   - lamp
