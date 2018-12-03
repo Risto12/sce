@@ -2,4 +2,4 @@ base:
   '*':
     - django
     - mysql
-    - server
+    #- node

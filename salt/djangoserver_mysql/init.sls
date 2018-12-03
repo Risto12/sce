@@ -16,6 +16,10 @@ include:
 gcc:
   pkg.installed
 
+python3-dev:
+  pkg.installed
+
+
 python3.6 -m venv /home/{{ user }}/{{ django_folder }}/{{ env }}:
   cmd.run:
     - makedirs: True

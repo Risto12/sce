@@ -7,6 +7,9 @@ apache2:
 libapache2-mod-php7.2:
   pkg.installed
 
+php-mysql:
+  pkg.installed
+
 /home/vagrant/.my.cnf:
   file.managed:
     - source: salt://lamp/auth
