@@ -145,11 +145,11 @@ ja luodaan php7.2.conf. Tämä mahdollistaa php käytön kotihakemistosta.
 >    Require all denied
 ></FilesMatch>
 >
->#<IfModule mod_userdir.c>
->#    <Directory /home/*/public_html>
->#        php_admin_flag engine Off
->#    </Directory>
->#</IfModule>
+> \#<IfModule mod_userdir.c>
+> \#    <Directory /home/*/public_html>
+> \#        php_admin_flag engine Off
+> \#    </Directory>
+> \#</IfModule>
 
 
 
