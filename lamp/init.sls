@@ -1,6 +1,9 @@
 include:
   - mysql
 
+apache2:
+  pkg.installed
+
 libapache2-mod-php7.2:
   pkg.installed
 
@@ -19,9 +22,6 @@ libapache2-mod-php7.2:
    cmd.run:
     - user: vagrant
 
-apache2:
-  pkg.installed
-
 /var/www/html/index.php:
  file.managed:
    - source: salt://lamp/index.php
@@ -33,9 +33,6 @@ apache2:
 /etc/apache2/mods-enabled/userdir.load:
  file.symlink:
    - target: ../mods-available/userdir.load
-
-libapache2-mod-php:
-  pkg.installed
 
 /etc/apache2/mods-available/php7.2.conf:
  file.managed:
